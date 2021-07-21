@@ -7,7 +7,7 @@ import requests
 import pandas as pd
 
 def scrap_socio():
-    token="1463804463:AAG2QhbTkD_rLV0y0TWj3keuk5x--c3jz6I"
+    token="1463804463:AAGhxDuKJCNDd7R_fDawFXRmGXvJ9uPyKNo"
     chat_id="-1001458610971"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="
     # url = "https://socioempleo.trabajo.gob.ec/socioEmpleo-war/paginas/ofertas/verOferta.jsf?idOfeLab=257100"

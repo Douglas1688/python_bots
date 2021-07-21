@@ -10,7 +10,7 @@ import pandas as pd
 def scrapp_fullclasificados():
     api_adfocus = "http://adfoc.us/api/?key=d3be1cc8976b84b2b9257f6b29608c36&url="
     #api_tiny = "https://tinyurl.com/api-create.php?url="
-    token="1463804463:AAG2QhbTkD_rLV0y0TWj3keuk5x--c3jz6I"
+    token="1463804463:AAGhxDuKJCNDd7R_fDawFXRmGXvJ9uPyKNo"
     #chat_id="1053185415"
     chat_id="-1001458610971"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="
