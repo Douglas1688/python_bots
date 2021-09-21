@@ -5,7 +5,7 @@ import time as tiempo
 import pyshorteners
 
 def scrap_unmejorempleo():
-    token="1463804463:AAGhxDuKJCNDd7R_fDawFXRmGXvJ9uPyKNo"
+    token="1463804463:AAHYnABJQgZmE1seZ8xe0xH5HH7HnL-OxV8"
     chat_id="-1001458610971"
     #chat_id="1053185415"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="

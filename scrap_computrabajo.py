@@ -11,7 +11,7 @@ from helium import start_chrome
 def scrapp_compu():
     api_adfocus = "http://adfoc.us/api/?key=d3be1cc8976b84b2b9257f6b29608c36&url="
     #api_tiny = "https://tinyurl.com/api-create.php?url="
-    token="1463804463:AAGhxDuKJCNDd7R_fDawFXRmGXvJ9uPyKNo"
+    token="1463804463:AAHYnABJQgZmE1seZ8xe0xH5HH7HnL-OxV8"
     #chat_id="1053185415"
     chat_id="-1001458610971"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="

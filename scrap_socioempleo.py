@@ -7,7 +7,7 @@ import requests
 import pandas as pd
 
 def scrap_socio():
-    token="1463804463:AAGhxDuKJCNDd7R_fDawFXRmGXvJ9uPyKNo"
+    token="1463804463:AAHYnABJQgZmE1seZ8xe0xH5HH7HnL-OxV8"
     chat_id="-1001458610971"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="
     # url = "https://socioempleo.trabajo.gob.ec/socioEmpleo-war/paginas/ofertas/verOferta.jsf?idOfeLab=257100"
@@ -24,7 +24,7 @@ def scrap_socio():
     desde = int(input("Desde:"))
     hasta = int(input("Hasta:"))
     for i in range(desde,hasta):
-        if requests.get(url+f"{i}").status_code == 200:
+        if requests.get(url+f"{i}", verify=False).status_code == 200:
             requests.post(url_req+url+f"{i}")
             tiempo.sleep(5)
 
