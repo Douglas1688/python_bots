@@ -10,7 +10,7 @@ import pandas as pd
 def scrapp_fullclasificados():
     api_adfocus = "http://adfoc.us/api/?key=d3be1cc8976b84b2b9257f6b29608c36&url="
     #api_tiny = "https://tinyurl.com/api-create.php?url="
-    token="1463804463:AAGhxDuKJCNDd7R_fDawFXRmGXvJ9uPyKNo"
+    token="1463804463:AAFiAwYmUSo4qEXF1tVTQp1WseuEyHU0npI"
     #chat_id="1053185415"
     chat_id="-1001458610971"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="
@@ -49,6 +49,7 @@ def scrapp_fullclasificados():
         response = requests.get(api_adfocus+elem)
         b = response.content
         links.append(b.decode('utf-8'))
+        tiempo.sleep(1)
 
     longitud = len(jobs)
     df = pd.DataFrame({'Nombre':jobs,'Descripcion':info,'Links':links},index=list(range(1,(longitud+1))))

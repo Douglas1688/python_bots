@@ -4,9 +4,10 @@ import pandas as pd
 import time as tiempo
 
 def scrap_ejob():
-    token="1463804463:AAHYnABJQgZmE1seZ8xe0xH5HH7HnL-OxV8"
+    token="1463804463:AAFiAwYmUSo4qEXF1tVTQp1WseuEyHU0npI"
     #chat_id="1053185415"
     chat_id="-1001458610971"
+    url_bxc = "https://bc.vc/api.php?key=e60a22c77869be83f8df5d556a50d1dd&uid=388979&url="
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="   
     api_adfocus = "http://adfoc.us/api/?key=d3be1cc8976b84b2b9257f6b29608c36&url="
    
@@ -37,10 +38,11 @@ def scrap_ejob():
 
     links =[elem for elem in links_aux if '/trabajo' in elem]
 
-    """for elem in links:
-        response = requests.get(api_adfocus+elem)
-        b = response.content
-        links_listos.append(b.decode('utf-8'))"""
+    # for elem in links:
+        # response = requests.get(api_adfocus+elem)
+        # b = response.content
+        # links_listos.append(b.decode('utf-8'))
+        # tiempo.sleep(1)
 
     longitud = len(title)
    

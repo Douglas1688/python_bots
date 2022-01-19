@@ -5,7 +5,7 @@ import time as tiempo
 import pyshorteners
 
 def scrap_unmejorempleo():
-    token="1463804463:AAHYnABJQgZmE1seZ8xe0xH5HH7HnL-OxV8"
+    token="1463804463:AAFiAwYmUSo4qEXF1tVTQp1WseuEyHU0npI"
     chat_id="-1001458610971"
     #chat_id="1053185415"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="
@@ -31,23 +31,25 @@ def scrap_unmejorempleo():
 
     for p in soup.find_all(class_='no-margin-top'):
         for track in p.find_all('a'):
-            links_aux.append('https://www.unmejorempleo.com.ec/'+track['href'])
+            links.append('https://www.unmejorempleo.com.ec/'+track['href'])
 
-    """for elem in links_aux:
-        response = requests.get(api_adfocus+elem)
-        b = response.content
-        links.append(b.decode('utf-8'))"""
+    # for elem in links_aux:
+        # response = requests.get(api_adfocus+elem)
+        # b = response.content
+        # links.append(b.decode('utf-8'))
+        # tiempo.sleep(1)
+
 
 
     longitud = len(jobs)
 
-    df = pd.DataFrame({'Fuente':'Un mejor Empleo','Nombre':jobs,'Localidad':address,'Links':links_aux,'Nota':'AL ABRIR EL LINK, ESPERA 6 SEGUNDOS Y PRESIONA SKIP'},index=list(range(1,(longitud+1))))
+    df = pd.DataFrame({'Fuente':'Un mejor Empleo','Nombre':jobs,'Localidad':address,'Links':links},index=list(range(1,(longitud+1))))
     df = df.iloc[::-1]
         
 
     for elem in df.index:    
-        requests.post(url_req+"{}\n{}\n{}{}\nLINK DE POSTULACIÓN:\n{}\nNOTA: {}".format(df['Fuente'][elem],df['Nombre'][elem],chr(128205),
-        df['Localidad'][elem],df['Links'][elem],df['Nota'][elem]))
+        requests.post(url_req+"Fuente: {}\nPuesto: {}\{}{}\nLINK DE POSTULACIÓN:\n{}".format(df['Fuente'][elem],df['Nombre'][elem],chr(128205),
+        df['Localidad'][elem],df['Links'][elem]))
         tiempo.sleep(5)
     
 

@@ -11,7 +11,7 @@ import pyshorteners
 
 def scrap_hiring(archivo):
 
-    token="1463804463:AAHYnABJQgZmE1seZ8xe0xH5HH7HnL-OxV8"
+    token="1463804463:AAFiAwYmUSo4qEXF1tVTQp1WseuEyHU0npI"
     #chat_id="1053185415"
     chat_id="-1001458610971"
     url_req = "https://api.telegram.org/bot"+token+"/sendMessage"+"?chat_id="+chat_id+"&text="  
@@ -26,7 +26,6 @@ def scrap_hiring(archivo):
     title = list()
     company =list()
     links = list()
-    links_aux = list()
     locations = list()
 
     for z in range(len(lst)):
@@ -42,7 +41,7 @@ def scrap_hiring(archivo):
 
         for x in soup.find_all('li',class_='vacantes'):
             for elem in x.find_all('a'):
-                links_aux.append('https:'+elem['href'])
+                links.append('https:'+elem['href'])
 
         for x in soup.find_all('li',class_='vacantes'):
             for elem in x.find_all('p',class_='location'):
@@ -53,20 +52,21 @@ def scrap_hiring(archivo):
         
 
     
-    """for elem in links_aux:
-        response = requests.get(api_adfocus+elem)
-        b = response.content
-        links.append(b.decode('utf-8'))"""
+    # for elem in links_aux:
+        # response = requests.get(api_adfocus+elem)
+        # b = response.content
+        # links.append(b.decode('utf-8'))
+        # tiempo.sleep(1)
 
 
 
     longitud = len(title)   
 
-    df = pd.DataFrame({'Nombre':title,'Empresa':company,'Localidad':locations,'Link':links_aux},index=list(range(1,(longitud+1))))
+    df = pd.DataFrame({'Nombre':title,'Empresa':company,'Localidad':locations,'Link':links},index=list(range(1,(longitud+1))))
     for elem in df.index:
         requests.post(url_req+"{}\nEmpresa: {}\n{}{}\nLINK DE POSTULACIÓN:\n{}.".format(df['Nombre'][elem],df['Empresa'][elem],chr(128205),df['Localidad'][elem],df['Link'][elem]))
         tiempo.sleep(5)
 
 
 
-scrap_hiring('hir4.txt')
+scrap_hiring('hir3.txt')
